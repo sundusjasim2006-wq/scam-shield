@@ -1,0 +1,17 @@
+{
+  "id": "case01",
+  "channel": "email",
+  "sender": "accounts@northwlnd-supplies.example",
+  "display_name": "Northwind Supplies Accounts",
+  "reply_to": "accounts@northwlnd-supplies.example",
+  "subject": "URGENT: new bank details for invoice #8841 — pay before 5 PM",
+  "received_at": "2026-10-24T13:05:00Z",
+  "message": "Hi, we changed banks this morning. Please pay invoice #8841 for $12,400.00 to our new account ending 9082 before 5 PM today so we can ship. Keep this between us until the audit is done. Do not call the old number. — Priya Nair, Accounts",
+  "links": [],
+  "attachments": [
+    {
+      "filename": "INV-8841.pdf",
+      "note": "synthetic placeholder; file is not included"
+    }
+  ]
+}

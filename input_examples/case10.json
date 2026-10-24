@@ -1,0 +1,13 @@
+{
+  "id": "case10",
+  "channel": "sms",
+  "sender": "+1-555-010-2210",
+  "display_name": "Noah Patel",
+  "reply_to": null,
+  "subject": null,
+  "received_at": "2026-10-24T12:14:00Z",
+  "message": "Hey, can you send $40 for lunch near campus? Same cafe as last week. Safe word matched on this thread (the word itself is not stored).",
+  "links": [],
+  "attachments": [],
+  "safe_word_matched": true
+}

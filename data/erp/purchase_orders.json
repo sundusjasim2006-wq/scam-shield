@@ -1,0 +1,38 @@
+[
+  {
+    "po_number": "PO-1042",
+    "vendor": "Northwind Supplies",
+    "amount_usd": 12400,
+    "currency": "USD",
+    "issued_date": "2026-10-01",
+    "status": "open",
+    "description": "Q4 warehouse restock (synthetic)"
+  },
+  {
+    "po_number": "PO-1048",
+    "vendor": "Northwind Supplies",
+    "amount_usd": 4850,
+    "currency": "USD",
+    "issued_date": "2026-10-12",
+    "status": "open",
+    "description": "Packing materials add-on (synthetic)"
+  },
+  {
+    "po_number": "PO-1107",
+    "vendor": "Harbor Logistics",
+    "amount_usd": 9100,
+    "currency": "USD",
+    "issued_date": "2026-09-22",
+    "status": "open",
+    "description": "Inbound freight block (synthetic)"
+  },
+  {
+    "po_number": "PO-2201",
+    "vendor": "Pinecrest Office Supply",
+    "amount_usd": 289,
+    "currency": "USD",
+    "issued_date": "2026-08-15",
+    "status": "closed",
+    "description": "Toner and paper (synthetic)"
+  }
+]

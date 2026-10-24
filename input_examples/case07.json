@@ -1,0 +1,17 @@
+{
+  "id": "case07",
+  "channel": "email",
+  "sender": "billing@harbor-logistics.example",
+  "display_name": "Harbor Logistics Billing",
+  "reply_to": "billing@harbor-logistics.example",
+  "subject": "Invoice HL-4438 — pay new account ending 5521 (already verified)",
+  "received_at": "2026-10-21T10:18:00Z",
+  "message": "Hello, invoice HL-4438 is $9,100.00 against PO-1107. As Samira confirmed on the 15 September callback, please use the new account ending 5521. Reply on this thread if the remittance advice needs a different PO line. — Kenji Okada, Harbor Logistics",
+  "links": [],
+  "attachments": [
+    {
+      "filename": "HL-4438.pdf",
+      "note": "synthetic placeholder; file is not included"
+    }
+  ]
+}

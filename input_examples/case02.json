@@ -1,0 +1,12 @@
+{
+  "id": "case02",
+  "channel": "sms",
+  "sender": "+1-555-019-4471",
+  "display_name": "Unknown",
+  "reply_to": null,
+  "subject": null,
+  "received_at": "2026-10-24T18:41:00Z",
+  "message": "Mum it's me, new number, phone fell in water, send $900 for repair now, don't tell Dad",
+  "links": [],
+  "attachments": []
+}

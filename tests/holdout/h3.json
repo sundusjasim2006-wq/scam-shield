@@ -1,0 +1,12 @@
+{
+  "id": "h3",
+  "channel": "email",
+  "sender": "hello@cedar-birch-print.example",
+  "display_name": "Cedar & Birch Print Co",
+  "reply_to": "hello@cedar-birch-print.example",
+  "subject": "First invoice CB-0001 — $48.00",
+  "received_at": "2026-10-23T17:45:00Z",
+  "message": "Thanks for the walk-in business-card trial. First invoice CB-0001 is $48.00. We are a new shop and are not yet in your vendor file. Account on our letterhead ends 1190. No rush — pay when you set us up. — Mina Alvarez",
+  "links": [],
+  "attachments": []
+}

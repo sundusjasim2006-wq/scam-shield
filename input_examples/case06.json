@@ -1,0 +1,12 @@
+{
+  "id": "case06",
+  "channel": "email",
+  "sender": "amira.hassan@freemail.example",
+  "display_name": "Amira (CEO)",
+  "reply_to": "amira.hassan@freemail.example",
+  "subject": "Need this before the board call — keep quiet",
+  "received_at": "2026-10-24T07:55:00Z",
+  "message": "I am in a taxi to the offsite. Buy $2,000 of gift cards from the shop downstairs and email the codes to me here. Do not mention this to finance or my assistant. I will explain later. — Amira",
+  "links": [],
+  "attachments": []
+}

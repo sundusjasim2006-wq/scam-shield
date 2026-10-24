@@ -1,0 +1,29 @@
+{
+  "org": "Acme Internal (synthetic demo company)",
+  "rules": [
+    {
+      "id": "POL-BANK-01",
+      "text": "Any bank-detail change must be confirmed by calling the phone on file. Email or SMS confirmation is not enough."
+    },
+    {
+      "id": "POL-PO-01",
+      "text": "Invoices above 2x the vendor's typical amount need a purchase order before payment."
+    },
+    {
+      "id": "POL-GIFT-01",
+      "text": "Never pay by gift card. Gift cards are not a valid supplier or payroll method."
+    },
+    {
+      "id": "POL-SECRECY-01",
+      "text": "A request to keep a payment secret, skip audit, or avoid calling someone back is a stop signal."
+    },
+    {
+      "id": "POL-CALLBACK-01",
+      "text": "Voice payment requests must be returned on the number in the employee directory. Do not follow 'don't call back' instructions."
+    },
+    {
+      "id": "POL-DOMAIN-01",
+      "text": "Pay only to domains and reply-to addresses that match the vendor record in ERP. Lookalike spellings are treated as hostile until proven otherwise."
+    }
+  ]
+}

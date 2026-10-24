@@ -1,0 +1,14 @@
+{
+  "id": "case09",
+  "channel": "email",
+  "sender": "alerts@firstnatlonal.example",
+  "display_name": "First National Secure Alerts",
+  "reply_to": "noreply@firstnatlonal.example",
+  "subject": "Your account is suspended — verify within 24 hours",
+  "received_at": "2026-10-24T04:11:00Z",
+  "message": "We locked your business account after unusual activity. Verify within 24 hours or outgoing payments will stay frozen. Use the secure link. Do not use the phone number on your statement.",
+  "links": [
+    "https://secure-login.firstnatlonal.example/verify"
+  ],
+  "attachments": []
+}

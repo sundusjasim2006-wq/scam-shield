@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Noah Patel",
+    "relationship": "son",
+    "phone_last4": "2210",
+    "safe_word_set": true,
+    "notes": "Campus number saved in the family phone. Confirm with the family safe word before sending money to any new number. The safe word itself is not stored here."
+  },
+  {
+    "name": "Leila Patel",
+    "relationship": "spouse",
+    "phone_last4": "7743",
+    "safe_word_set": true,
+    "notes": "Would never ask a child to hide a payment from the other parent."
+  }
+]

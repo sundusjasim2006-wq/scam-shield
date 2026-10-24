@@ -1,0 +1,14 @@
+{
+  "id": "h1",
+  "channel": "sms",
+  "sender": "+1-555-018-3304",
+  "display_name": "Metro Water",
+  "reply_to": null,
+  "subject": null,
+  "received_at": "2026-10-24T19:03:00Z",
+  "message": "Metro Water: your service will be cut in 2 hours. Pay $286.40 now at https://metro-water-billing.example/pay to keep the water on. Do not use the number on your paper bill.",
+  "links": [
+    "https://metro-water-billing.example/pay"
+  ],
+  "attachments": []
+}

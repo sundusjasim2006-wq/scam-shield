@@ -1,0 +1,12 @@
+{
+  "id": "case08",
+  "channel": "voice_transcript",
+  "sender": "caller ID unknown",
+  "display_name": "Claims to be Jordan Hale, Finance Director",
+  "reply_to": null,
+  "subject": null,
+  "received_at": "2026-10-24T16:02:00Z",
+  "message": "SYNTHETIC VOICE TRANSCRIPT. Caller ID unknown. Caller: 'This is Jordan Hale, finance director. I need you to wire $18,500 in the next twenty minutes to the account I am about to text. I'm in a meeting, don't call back. If anyone asks, say it is a board matter.' Call ends.",
+  "links": [],
+  "attachments": []
+}

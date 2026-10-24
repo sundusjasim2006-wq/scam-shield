@@ -1,0 +1,20 @@
+{
+  "h1": {
+    "expected_verdict": "HOLD",
+    "amount_at_risk_usd": 286.4,
+    "difficulty": "easy",
+    "expected_signals": ["utility_impersonation", "unexpected_sender", "urgency", "new_domain"]
+  },
+  "h2": {
+    "expected_verdict": "OK",
+    "amount_at_risk_usd": 305,
+    "difficulty": "easy",
+    "expected_signals": ["known_vendor", "known_account", "typical_amount"]
+  },
+  "h3": {
+    "expected_verdict": "VERIFY_FIRST",
+    "amount_at_risk_usd": 48,
+    "difficulty": "medium",
+    "expected_signals": ["unknown_vendor", "no_history", "new_domain"]
+  }
+}

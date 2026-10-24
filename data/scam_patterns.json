@@ -1,0 +1,62 @@
+[
+  {
+    "id": "SP-01",
+    "name": "Lookalike vendor domain",
+    "signals": ["lookalike_domain", "new_domain", "invoice_pressure"]
+  },
+  {
+    "id": "SP-02",
+    "name": "Unverified bank change",
+    "signals": ["new_bank_account", "no_callback_verification", "secrecy"]
+  },
+  {
+    "id": "SP-03",
+    "name": "Family emergency new number",
+    "signals": ["family_emergency", "new_number", "secrecy"]
+  },
+  {
+    "id": "SP-04",
+    "name": "Job onboarding gift card",
+    "signals": ["gift_card", "onboarding_fee", "off_platform", "not_in_company_registry"]
+  },
+  {
+    "id": "SP-05",
+    "name": "CEO gift-card rush",
+    "signals": ["ceo_impersonation", "gift_card", "freemail", "secrecy"]
+  },
+  {
+    "id": "SP-06",
+    "name": "Invoice far above typical with no PO",
+    "signals": ["no_purchase_order", "amount_above_typical"]
+  },
+  {
+    "id": "SP-07",
+    "name": "Voice wire with no callback",
+    "signals": ["caller_id_unknown", "no_callback", "wire_transfer", "urgency"]
+  },
+  {
+    "id": "SP-08",
+    "name": "Account-suspended phishing",
+    "signals": ["phishing", "lookalike_domain", "urgency"]
+  },
+  {
+    "id": "SP-09",
+    "name": "Prompt injection in a payment email",
+    "signals": ["prompt_injection", "new_bank_account"]
+  },
+  {
+    "id": "SP-10",
+    "name": "Reply-to mismatch on a known domain",
+    "signals": ["reply_to_mismatch", "freemail", "new_bank_account"]
+  },
+  {
+    "id": "SP-11",
+    "name": "Utility disconnection SMS",
+    "signals": ["utility_impersonation", "unexpected_sender", "urgency"]
+  },
+  {
+    "id": "SP-12",
+    "name": "Off-platform chat after a job or invoice lure",
+    "signals": ["off_platform", "telegram", "new_domain"]
+  }
+]

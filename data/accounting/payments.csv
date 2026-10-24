@@ -1,0 +1,12 @@
+date,vendor,amount,account_last4,invoice_no
+2026-04-03,Northwind Supplies,11850.00,4417,NW-8710
+2026-05-12,Northwind Supplies,12100.00,4417,NW-8744
+2026-06-18,Northwind Supplies,11940.00,4417,NW-8771
+2026-07-22,Northwind Supplies,12310.00,4417,NW-8790
+2026-08-19,Northwind Supplies,12050.00,4417,NW-8812
+2026-09-16,Northwind Supplies,12220.00,4417,NW-8828
+2026-07-08,Harbor Logistics,9050.00,3344,HL-4401
+2026-08-11,Harbor Logistics,9180.00,3344,HL-4419
+2026-09-29,Harbor Logistics,9100.00,5521,HL-4430
+2026-08-20,Pinecrest Office Supply,289.00,6672,PC-1902
+2026-09-20,Pinecrest Office Supply,305.00,6672,PC-1918

@@ -1,0 +1,12 @@
+{
+  "id": "case12",
+  "channel": "email",
+  "sender": "accounts@northwind-supplies.example",
+  "display_name": "Northwind Supplies Accounts",
+  "reply_to": "priya.nair@freemail.example",
+  "subject": "Need payment today — new account 9082",
+  "received_at": "2026-10-24T14:22:00Z",
+  "message": "Our usual account is frozen. Wire $12,400 for invoice #8841 to account ending 9082 today. Reply only to this address. This is urgent.",
+  "links": [],
+  "attachments": []
+}

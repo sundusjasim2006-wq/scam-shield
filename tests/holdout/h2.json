@@ -1,0 +1,12 @@
+{
+  "id": "h2",
+  "channel": "email",
+  "sender": "orders@pinecrest-office.example",
+  "display_name": "Pinecrest Office Supply",
+  "reply_to": "orders@pinecrest-office.example",
+  "subject": "Subscription renewal PC-1924 — $305.00",
+  "received_at": "2026-10-20T08:00:00Z",
+  "message": "Your standing paper-and-toner subscription renews on 1 November. Invoice PC-1924 is $305.00, in line with last month, payable to the account on file ending 6672. No action needed if auto-pay remains on. — Pinecrest Office Supply",
+  "links": [],
+  "attachments": []
+}

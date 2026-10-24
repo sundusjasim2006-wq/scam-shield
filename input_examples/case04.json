@@ -1,0 +1,17 @@
+{
+  "id": "case04",
+  "channel": "email",
+  "sender": "accounts@northwind-supplies.example",
+  "display_name": "Northwind Supplies Accounts",
+  "reply_to": "accounts@northwind-supplies.example",
+  "subject": "Invoice NW-8849 for PO-1048 — $4,850.00",
+  "received_at": "2026-10-20T11:04:00Z",
+  "message": "Hello AP team, please find invoice NW-8849 for packing materials against purchase order PO-1048. Amount due is $4,850.00 to the account on file ending 4417. Net 30, no rush. Thank you, Priya Nair, accounts@northwind-supplies.example",
+  "links": [],
+  "attachments": [
+    {
+      "filename": "NW-8849.pdf",
+      "note": "synthetic placeholder; file is not included"
+    }
+  ]
+}

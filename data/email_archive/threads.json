@@ -1,0 +1,50 @@
+[
+  {
+    "vendor": "Northwind Supplies",
+    "thread_id": "thr-nw-104",
+    "messages": [
+      {
+        "sender": "accounts@northwind-supplies.example",
+        "reply_to": "accounts@northwind-supplies.example",
+        "subject": "Invoice NW-8812 for PO-1019",
+        "date": "2026-08-18T14:02:00Z"
+      },
+      {
+        "sender": "ap@acme-internal.example",
+        "reply_to": "ap@acme-internal.example",
+        "subject": "Re: Invoice NW-8812 for PO-1019",
+        "date": "2026-08-18T16:40:00Z"
+      }
+    ]
+  },
+  {
+    "vendor": "Harbor Logistics",
+    "thread_id": "thr-hl-55",
+    "messages": [
+      {
+        "sender": "billing@harbor-logistics.example",
+        "reply_to": "billing@harbor-logistics.example",
+        "subject": "Bank details update — callback completed",
+        "date": "2026-09-15T11:20:00Z"
+      },
+      {
+        "sender": "ap@acme-internal.example",
+        "reply_to": "ap@acme-internal.example",
+        "subject": "Re: Bank details update — callback completed",
+        "date": "2026-09-15T15:05:00Z"
+      }
+    ]
+  },
+  {
+    "vendor": "Pinecrest Office Supply",
+    "thread_id": "thr-pc-12",
+    "messages": [
+      {
+        "sender": "orders@pinecrest-office.example",
+        "reply_to": "orders@pinecrest-office.example",
+        "subject": "Monthly supplies confirmation PC-1918",
+        "date": "2026-09-19T09:12:00Z"
+      }
+    ]
+  }
+]

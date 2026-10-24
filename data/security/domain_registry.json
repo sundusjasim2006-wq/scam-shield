@@ -1,0 +1,42 @@
+{
+  "northwind-supplies.example": {
+    "age_in_days": 1900,
+    "registrar_country": "US"
+  },
+  "northwlnd-supplies.example": {
+    "age_in_days": 3,
+    "registrar_country": "SC"
+  },
+  "brightpath-digital-jobs.example": {
+    "age_in_days": 5,
+    "registrar_country": "SC"
+  },
+  "freemail.example": {
+    "age_in_days": 8000,
+    "registrar_country": "US"
+  },
+  "harbor-logistics.example": {
+    "age_in_days": 1600,
+    "registrar_country": "US"
+  },
+  "pinecrest-office.example": {
+    "age_in_days": 2100,
+    "registrar_country": "US"
+  },
+  "firstnational.example": {
+    "age_in_days": 4200,
+    "registrar_country": "US"
+  },
+  "firstnatlonal.example": {
+    "age_in_days": 2,
+    "registrar_country": "SC"
+  },
+  "cedar-birch-print.example": {
+    "age_in_days": 12,
+    "registrar_country": "US"
+  },
+  "metro-water-billing.example": {
+    "age_in_days": 4,
+    "registrar_country": "SC"
+  }
+}

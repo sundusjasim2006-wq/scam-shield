@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Northwind Supplies",
+    "official_domain": "northwind-supplies.example",
+    "bank_last4": "4417",
+    "typical_amount_usd": 12000,
+    "onboarded_date": "2019-03-12"
+  },
+  {
+    "name": "Harbor Logistics",
+    "official_domain": "harbor-logistics.example",
+    "bank_last4": "5521",
+    "typical_amount_usd": 9200,
+    "onboarded_date": "2021-06-08"
+  },
+  {
+    "name": "Pinecrest Office Supply",
+    "official_domain": "pinecrest-office.example",
+    "bank_last4": "6672",
+    "typical_amount_usd": 310,
+    "onboarded_date": "2020-01-20"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "id": "case03",
+  "channel": "email",
+  "sender": "careers@brightpath-digital-jobs.example",
+  "display_name": "BrightPath Digital Careers",
+  "reply_to": "onboarding@brightpath-digital-jobs.example",
+  "subject": "You're hired — $450/day remote, start this week",
+  "received_at": "2026-10-23T09:12:00Z",
+  "message": "Congratulations! BrightPath Digital selected you for a remote coordinator role at $450/day. No experience required. To unlock payroll we need a $75 onboarding fee paid by gift card today. After you send the codes, continue on Telegram with @brightpath-hr-demo. This is a synthetic recruiting lure for tests.",
+  "links": [
+    "https://brightpath-digital-jobs.example/start"
+  ],
+  "attachments": []
+}

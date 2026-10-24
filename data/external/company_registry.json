@@ -1,0 +1,34 @@
+[
+  {
+    "legal_name": "Northwind Supplies Ltd",
+    "trading_name": "Northwind Supplies",
+    "domain": "northwind-supplies.example",
+    "registration_number": "SYN-104419",
+    "jurisdiction": "Delaware (synthetic)",
+    "status": "active"
+  },
+  {
+    "legal_name": "Harbor Logistics Ltd",
+    "trading_name": "Harbor Logistics",
+    "domain": "harbor-logistics.example",
+    "registration_number": "SYN-228731",
+    "jurisdiction": "Delaware (synthetic)",
+    "status": "active"
+  },
+  {
+    "legal_name": "Pinecrest Office Supply Inc",
+    "trading_name": "Pinecrest Office Supply",
+    "domain": "pinecrest-office.example",
+    "registration_number": "SYN-330158",
+    "jurisdiction": "California (synthetic)",
+    "status": "active"
+  },
+  {
+    "legal_name": "First National Bank of Example",
+    "trading_name": "First National",
+    "domain": "firstnational.example",
+    "registration_number": "SYN-BANK-01",
+    "jurisdiction": "New York (synthetic)",
+    "status": "active"
+  }
+]

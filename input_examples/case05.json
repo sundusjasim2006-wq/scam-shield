@@ -1,0 +1,17 @@
+{
+  "id": "case05",
+  "channel": "email",
+  "sender": "accounts@northwind-supplies.example",
+  "display_name": "Northwind Supplies Accounts",
+  "reply_to": "accounts@northwind-supplies.example",
+  "subject": "Invoice NW-8900 — $38,000.00",
+  "received_at": "2026-10-22T15:30:00Z",
+  "message": "Hello, attached is invoice NW-8900 for $38,000.00 covering an expanded restock. Please pay the account on file ending 4417 on the usual net-30 terms. Let us know if you need a line-item split. — Priya Nair, Northwind Supplies",
+  "links": [],
+  "attachments": [
+    {
+      "filename": "NW-8900.pdf",
+      "note": "synthetic placeholder; file is not included"
+    }
+  ]
+}
