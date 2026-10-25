@@ -1,0 +1,25 @@
+{
+  "id": "case05",
+  "verdict": "VERIFY_FIRST",
+  "confidence": 0.65,
+  "rounds": 1,
+  "why": "No hard-stop signal, but findings need verification before paying",
+  "skeptic_view": "This could be a legitimate request, but the records do not confirm it. A quick verification is cheap compared with a wrong payment.",
+  "evidence": [
+    "No PO for $38000 from Northwind Supplies (erp/purchase_orders.json)",
+    "Policy POL-PO-01: Invoices above 2x the vendor's typical amount need a purchase order before payment.",
+    "$38000 vs typical $12000 (erp/vendors.json)",
+    "Policy POL-PO-01: Invoices above 2x the vendor's typical amount need a purchase order before payment."
+  ],
+  "safe_action": "Pause. Confirm with the vendor using a contact from your own records and attach a purchase order before paying.",
+  "amount_mentioned_usd": 38000,
+  "signals": [
+    "known_account",
+    "no_purchase_order",
+    "amount_above_typical",
+    "registered_company",
+    "known_vendor"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

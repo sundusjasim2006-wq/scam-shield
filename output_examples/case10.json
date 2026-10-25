@@ -1,0 +1,20 @@
+{
+  "id": "case10",
+  "verdict": "OK",
+  "confidence": 0.92,
+  "rounds": 1,
+  "why": "Everything checked is consistent with company records",
+  "skeptic_view": "I looked for hidden risk and found none; the records back this request up.",
+  "evidence": [
+    "Number ending 2210 is saved as Noah Patel (son) (personal/contacts.json)",
+    "The family safe word was confirmed on this thread"
+  ],
+  "safe_action": "Consistent with your records. Pay as normal and keep the invoice on file.",
+  "amount_mentioned_usd": 40,
+  "signals": [
+    "known_contact",
+    "safe_word_matched"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

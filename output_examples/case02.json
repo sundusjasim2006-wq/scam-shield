@@ -1,0 +1,26 @@
+{
+  "id": "case02",
+  "verdict": "HOLD",
+  "confidence": 0.76,
+  "rounds": 1,
+  "why": "2 hard-stop signal(s): secrecy, unknown_number",
+  "skeptic_view": "I tried to defend this message and found no innocent explanation in the data.",
+  "evidence": [
+    "secrecy: \"don't tell\"",
+    "family_emergency: \"it's me\"",
+    "new_number: \"new number\"",
+    "Policy POL-SECRECY-01: A request to keep a payment secret, skip audit, or avoid calling someone back is a stop signal.",
+    "Number ending 4471 matches no saved contact",
+    "It claims to be family but the saved number differs; confirm with the safe word before sending money (personal/contacts.json)"
+  ],
+  "safe_action": "Do not send money. Call the saved number for your family member and ask for the family safe word. Tell someone else before acting.",
+  "amount_mentioned_usd": 900,
+  "signals": [
+    "secrecy",
+    "family_emergency",
+    "new_number",
+    "unknown_number"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

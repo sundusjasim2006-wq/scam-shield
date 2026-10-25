@@ -1,0 +1,28 @@
+{
+  "id": "case06",
+  "verdict": "HOLD",
+  "confidence": 0.84,
+  "rounds": 1,
+  "why": "3 hard-stop signal(s): secrecy, gift_card, ceo_impersonation",
+  "skeptic_view": "I tried to defend this message and found no innocent explanation in the data.",
+  "evidence": [
+    "A free mailbox is being used",
+    "urgency: \"before the board call\"",
+    "secrecy: \"keep quiet\"",
+    "gift_card: \"gift cards\"",
+    "Claims an executive role (\"CEO\") from an unverified sender",
+    "Policy POL-GIFT-01: Never pay by gift card. Gift cards are not a valid supplier or payroll method.",
+    "Policy POL-SECRECY-01: A request to keep a payment secret, skip audit, or avoid calling someone back is a stop signal."
+  ],
+  "safe_action": "Do not buy gift cards or send codes; report this to your security team. Tell someone else before acting.",
+  "amount_mentioned_usd": 2000,
+  "signals": [
+    "freemail",
+    "urgency",
+    "secrecy",
+    "gift_card",
+    "ceo_impersonation"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

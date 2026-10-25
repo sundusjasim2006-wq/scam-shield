@@ -1,0 +1,28 @@
+{
+  "id": "case07",
+  "verdict": "OK",
+  "confidence": 0.92,
+  "rounds": 1,
+  "why": "Everything checked is consistent with company records",
+  "skeptic_view": "I looked for hidden risk and found none; the records back this request up.",
+  "evidence": [
+    "Account ending 5521 matches the Harbor Logistics record (erp/vendors.json)",
+    "Used in 1 of 3 past payments (accounting/payments.csv)",
+    "Bank change 3344 to 5521 was confirmed by callback to +1-555-010-8840 by Samira Chen on 2026-09-15 (erp/bank_change_log.json)",
+    "PO-1107 for $9100 (open) matches the $9100 request (erp/purchase_orders.json)",
+    "$9100 vs typical $9200",
+    "Harbor Logistics Ltd (SYN-228731) is registered with domain harbor-logistics.example (external/company_registry.json)"
+  ],
+  "safe_action": "Consistent with your records. Pay as normal and keep the invoice on file.",
+  "amount_mentioned_usd": 9100,
+  "signals": [
+    "known_account",
+    "matching_verified_bank_change",
+    "matching_purchase_order",
+    "typical_amount",
+    "registered_company",
+    "known_vendor"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

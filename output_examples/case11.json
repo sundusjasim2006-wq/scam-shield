@@ -1,0 +1,29 @@
+{
+  "id": "case11",
+  "verdict": "HOLD",
+  "confidence": 0.76,
+  "rounds": 1,
+  "why": "2 hard-stop signal(s): new_bank_account, prompt_injection",
+  "skeptic_view": "There is innocent-looking evidence: matching_purchase_order, typical_amount, registered_company, known_vendor.",
+  "evidence": [
+    "Account ending 8841 differs from the Northwind Supplies record, which ends 4417 (erp/vendors.json)",
+    "All 6 past payments went to accounts ending 4417 (accounting/payments.csv)",
+    "No bank change is logged for this vendor (erp/bank_change_log.json)",
+    "Policy POL-BANK-01: Any bank-detail change must be confirmed by calling the phone on file. Email or SMS confirmation is not enough.",
+    "Found \"SYSTEM NOTE\" inside the message",
+    "Message text is treated as untrusted data; these instructions were ignored"
+  ],
+  "safe_action": "The message tried to instruct an AI system; those instructions were ignored. Do not pay. Call the vendor on the phone number in your own records (not one from the message) and confirm any bank change. Tell someone else before acting.",
+  "amount_mentioned_usd": 12400,
+  "signals": [
+    "new_bank_account",
+    "no_callback_verification",
+    "matching_purchase_order",
+    "typical_amount",
+    "prompt_injection",
+    "registered_company",
+    "known_vendor"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

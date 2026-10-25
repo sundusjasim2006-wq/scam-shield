@@ -1,0 +1,35 @@
+{
+  "id": "case01",
+  "verdict": "HOLD",
+  "confidence": 0.98,
+  "rounds": 2,
+  "why": "5 hard-stop signal(s): lookalike_domain, new_bank_account, secrecy, no_callback, registry_domain_mismatch",
+  "skeptic_view": "Remaining innocent evidence was already discounted; no innocent explanation covers the hard-stop signals.",
+  "evidence": [
+    "sender domain northwlnd-supplies.example is only 3 days old (security/domain_registry.json)",
+    "sender domain northwlnd-supplies.example is 1 character away from the real northwind-supplies.example",
+    "Policy POL-DOMAIN-01: Pay only to domains and reply-to addresses that match the vendor record in ERP. Lookalike spellings are treated as hostile until proven otherwise.",
+    "Account ending 9082 differs from the Northwind Supplies record, which ends 4417 (erp/vendors.json)",
+    "All 6 past payments went to accounts ending 4417 (accounting/payments.csv)",
+    "No bank change is logged for this vendor (erp/bank_change_log.json)",
+    "Policy POL-BANK-01: Any bank-detail change must be confirmed by calling the phone on file. Email or SMS confirmation is not enough.",
+    "Replies to northwlnd-supplies.example never appear in genuine Northwind Supplies threads (email_archive/threads.json)"
+  ],
+  "safe_action": "Do not pay. Call the vendor on the phone number in your own records (not one from the message) and confirm any bank change. Tell someone else before acting.",
+  "amount_mentioned_usd": 12400,
+  "signals": [
+    "new_domain",
+    "lookalike_domain",
+    "new_bank_account",
+    "no_callback_verification",
+    "matching_purchase_order",
+    "typical_amount",
+    "reply_to_unseen",
+    "urgency",
+    "secrecy",
+    "no_callback",
+    "registry_domain_mismatch"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

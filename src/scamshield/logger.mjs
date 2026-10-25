@@ -19,7 +19,7 @@ export function makeLogger(file = 'logs/trace.jsonl', { echo = true } = {}) {
         ...rec,
       };
       fs.appendFileSync(file, JSON.stringify(entry) + '\n');
-      if (echo) console.log(`  [trace] ${entry.agent_name} ${entry.action}: ${entry.output_summary}`);
+      if (echo === true || (echo === 'agents' && entry.agent_name !== 'EvidenceTools')) console.log(`  [trace] ${entry.agent_name} -> ${entry.target_agent || 'log'} | ${entry.action}: ${entry.output_summary}`);
     },
   };
 }

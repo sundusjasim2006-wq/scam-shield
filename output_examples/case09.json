@@ -1,0 +1,30 @@
+{
+  "id": "case09",
+  "verdict": "HOLD",
+  "confidence": 0.92,
+  "rounds": 1,
+  "why": "4 hard-stop signal(s): lookalike_domain, no_callback, phishing, registry_domain_mismatch",
+  "skeptic_view": "I tried to defend this message and found no innocent explanation in the data.",
+  "evidence": [
+    "sender domain firstnatlonal.example is only 2 days old (security/domain_registry.json)",
+    "sender domain firstnatlonal.example is 1 character away from the real firstnational.example",
+    "Policy POL-DOMAIN-01: Pay only to domains and reply-to addresses that match the vendor record in ERP. Lookalike spellings are treated as hostile until proven otherwise.",
+    "urgency: \"within 24 hours\"",
+    "no_callback: \"Do not use the phone number\"",
+    "phishing: \"account is suspended\"",
+    "Policy POL-SECRECY-01: A request to keep a payment secret, skip audit, or avoid calling someone back is a stop signal.",
+    "Display name suggests First National, whose registered domain is firstnational.example, but the sender uses firstnatlonal.example"
+  ],
+  "safe_action": "Do not wire money. Call the person back on the number in your directory. Tell someone else before acting.",
+  "amount_mentioned_usd": null,
+  "signals": [
+    "new_domain",
+    "lookalike_domain",
+    "urgency",
+    "no_callback",
+    "phishing",
+    "registry_domain_mismatch"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

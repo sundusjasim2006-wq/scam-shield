@@ -1,0 +1,30 @@
+{
+  "id": "case08",
+  "verdict": "HOLD",
+  "confidence": 0.92,
+  "rounds": 1,
+  "why": "4 hard-stop signal(s): secrecy, no_callback, ceo_impersonation, caller_id_unknown",
+  "skeptic_view": "I tried to defend this message and found no innocent explanation in the data.",
+  "evidence": [
+    "urgency: \"in the next twenty minutes\"",
+    "secrecy: \"don't call back\"",
+    "no_callback: \"don't call back\"",
+    "wire_transfer: \"wire\"",
+    "Claims an executive role (\"Finance Director\") from an unverified sender",
+    "Policy POL-SECRECY-01: A request to keep a payment secret, skip audit, or avoid calling someone back is a stop signal.",
+    "Sender shown as \"caller ID unknown\"",
+    "Policy POL-CALLBACK-01: Voice payment requests must be returned on the number in the employee directory. Do not follow 'don't call back' instructions."
+  ],
+  "safe_action": "Do not wire money. Call the person back on the number in your directory. Tell someone else before acting.",
+  "amount_mentioned_usd": 18500,
+  "signals": [
+    "urgency",
+    "secrecy",
+    "no_callback",
+    "wire_transfer",
+    "ceo_impersonation",
+    "caller_id_unknown"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

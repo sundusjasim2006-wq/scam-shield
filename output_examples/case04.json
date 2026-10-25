@@ -1,0 +1,24 @@
+{
+  "id": "case04",
+  "verdict": "OK",
+  "confidence": 0.92,
+  "rounds": 1,
+  "why": "Everything checked is consistent with company records",
+  "skeptic_view": "I looked for hidden risk and found none; the records back this request up.",
+  "evidence": [
+    "Account ending 4417 matches the Northwind Supplies record (erp/vendors.json)",
+    "Used in 6 of 6 past payments (accounting/payments.csv)",
+    "PO-1048 for $4850 (open) matches the $4850 request (erp/purchase_orders.json)",
+    "Northwind Supplies Ltd (SYN-104419) is registered with domain northwind-supplies.example (external/company_registry.json)"
+  ],
+  "safe_action": "Consistent with your records. Pay as normal and keep the invoice on file.",
+  "amount_mentioned_usd": 4850,
+  "signals": [
+    "known_account",
+    "matching_purchase_order",
+    "registered_company",
+    "known_vendor"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}

@@ -1,0 +1,32 @@
+{
+  "id": "case03",
+  "verdict": "HOLD",
+  "confidence": 0.76,
+  "rounds": 1,
+  "why": "2 hard-stop signal(s): gift_card, onboarding_fee",
+  "skeptic_view": "I tried to defend this message and found no innocent explanation in the data.",
+  "evidence": [
+    "sender domain brightpath-digital-jobs.example is only 5 days old (security/domain_registry.json)",
+    "urgency: \"today\"",
+    "gift_card: \"gift card\"",
+    "onboarding_fee: \"onboarding fee\"",
+    "off_platform: \"continue on\"",
+    "Policy POL-GIFT-01: Never pay by gift card. Gift cards are not a valid supplier or payroll method.",
+    "No registry record for brightpath-digital-jobs.example (external/company_registry.json)",
+    "No vendor record and no payment history"
+  ],
+  "safe_action": "Do not buy gift cards or send codes; report this to your security team. Tell someone else before acting.",
+  "amount_mentioned_usd": 450,
+  "signals": [
+    "new_domain",
+    "urgency",
+    "gift_card",
+    "onboarding_fee",
+    "off_platform",
+    "not_in_company_registry",
+    "unknown_vendor",
+    "no_history"
+  ],
+  "mode": "offline-evidence",
+  "model_note": null
+}
