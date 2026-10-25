@@ -2,6 +2,7 @@
 // Usage: node scripts/grade_agents.mjs      (always offline: no model key needed)
 import fs from 'node:fs';
 process.env.SAMPLE_MODE = 'true';
+process.env.SCAMSHIELD_MEMORY = 'off';
 const { loadData } = await import('../src/scamshield/data.mjs');
 const { analyze } = await import('../src/scamshield/agents.mjs');
 

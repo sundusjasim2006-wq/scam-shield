@@ -6,7 +6,7 @@ const FREEMAIL = ['freemail.example', 'gmail.com', 'outlook.com', 'yahoo.com', '
 const INTERNAL = ['acme-internal.example'];
 
 const mk = (tool, finding, severity, signals = [], evidence = []) => ({ tool, finding, severity, signals, evidence });
-const emailDomain = (a) => (a && a.includes('@') ? a.split('@').pop().trim().toLowerCase() : null);
+export const emailDomain = (a) => (a && a.includes('@') ? a.split('@').pop().trim().toLowerCase() : null);
 const regDomain = (h) => h.toLowerCase().split('.').slice(-2).join('.');
 const linkDomains = (links = []) => links.map((u) => { try { return regDomain(new URL(u).hostname); } catch { return null; } }).filter(Boolean);
 const fullText = (i) => `${i.subject || ''}\n${i.message || ''}`;
@@ -28,7 +28,7 @@ const allDomains = (i) => [
   ...linkDomains(i.links).map((d) => ['link', d]),
 ].filter(([, d], idx, arr) => arr.findIndex(([, x]) => x === d) === idx);
 
-function identifyVendor(i, db) {
+export function identifyVendor(i, db) {
   const doms = [emailDomain(i.sender), emailDomain(i.reply_to)].filter(Boolean);
   for (const v of db.vendors) if (doms.includes(v.official_domain)) return { vendor: v, how: 'sender or reply-to domain matches the vendor record' };
   for (const d of [...doms, ...linkDomains(i.links)])
@@ -37,8 +37,8 @@ function identifyVendor(i, db) {
   for (const v of db.vendors) if (text.includes(v.name.toLowerCase())) return { vendor: v, how: `${v.name} is named in the message`, claimed: true };
   return null;
 }
-const amountOf = (i) => { const m = fullText(i).match(/\$\s?([\d,]+(?:\.\d+)?)/); return m ? Number(m[1].replace(/,/g, '')) : null; };
-const accountOf = (i) => { const m = fullText(i).match(/(?:account|acct)[^\d]{0,40}(\d{4})\b/i); return m ? m[1] : null; };
+export const amountOf = (i) => { const m = fullText(i).match(/\$\s?([\d,]+(?:\.\d+)?)/); return m ? Number(m[1].replace(/,/g, '')) : null; };
+export const accountOf = (i) => { const m = fullText(i).match(/(?:account|acct)[^\d]{0,40}(\d{4})\b/i); return m ? m[1] : null; };
 
 export function domainAge(i, db) {
   const fresh = [], unknown = [];

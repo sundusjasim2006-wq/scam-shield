@@ -2,21 +2,31 @@
 //   Investigator -> Skeptic -> (revision round if challenged) -> Judge
 import { runTools } from './tools.mjs';
 import { askModel, modelConfigured } from './llm.mjs';
+import { memoryEvidence } from './memory.mjs';
 
 const HARD_STOP = new Set(['new_bank_account', 'lookalike_domain', 'reply_to_mismatch', 'registry_domain_mismatch', 'gift_card',
   'prompt_injection', 'secrecy', 'no_callback', 'ceo_impersonation', 'caller_id_unknown', 'unknown_number', 'phishing',
-  'utility_impersonation', 'onboarding_fee']);
+  'utility_impersonation', 'onboarding_fee', 'memory_account_conflict', 'known_scam_memory']);
 const BENIGN = { matching_purchase_order: 1, known_account: 1.5, matching_verified_bank_change: 1.5, known_vendor: 1,
-  registered_company: 0.5, typical_amount: 0.5, known_contact: 1.5, safe_word_matched: 2 };
-const IDENTITY_FAIL = new Set(['lookalike_domain', 'reply_to_mismatch', 'registry_domain_mismatch', 'ceo_impersonation', 'unknown_number', 'caller_id_unknown']);
+  registered_company: 0.5, typical_amount: 0.5, known_contact: 1.5, safe_word_matched: 2, memory_account_match: 1.5, verified_vendor_memory: 1 };
+const IDENTITY_FAIL = new Set(['lookalike_domain', 'reply_to_mismatch', 'registry_domain_mismatch', 'ceo_impersonation', 'unknown_number', 'caller_id_unknown', 'known_scam_memory']);
 const SEV = { high: 3, medium: 1.5, low: 0.5, none: 0 };
 const RANK = { OK: 0, VERIFY_FIRST: 1, HOLD: 2 };
 const cap = (x, hi = 0.98) => Math.round(Math.min(hi, x) * 100) / 100;
 
 export async function investigator(input, db, logger) {
   const ev = runTools(input, db, logger);
+  const mem = await memoryEvidence(input, db);
+  if (mem) {
+    ev.results.push(mem);
+    ev.signals = [...new Set([...ev.signals, ...mem.signals])];
+    logger?.log({ agent_name: 'Investigator', action: 'memory_recall', target_agent: 'H-MEM', input_summary: input.id,
+      output_summary: `${mem.severity.toUpperCase()}: ${mem.finding}`, status: mem.unavailable ? 'fallback' : mem.severity === 'none' ? 'clear' : 'flagged' });
+  }
+  const memMatch = ev.signals.includes('memory_account_match');
   const hard = ev.signals.filter((s) => HARD_STOP.has(s));
-  const flagged = ev.results.some((r) => r.severity === 'high' || r.severity === 'medium');
+  const resolvedByMemory = (r) => memMatch && ((r.tool === 'companyRegistryCheck' && r.signals.includes('unknown_vendor')) || (r.tool === 'bankAccountCheck' && r.signals.includes('unverifiable_account')));
+  const flagged = ev.results.some((r) => (r.severity === 'high' || r.severity === 'medium') && !resolvedByMemory(r));
   const h = {
     verdict: hard.length ? 'HOLD' : flagged ? 'VERIFY_FIRST' : 'OK',
     hard, signals: ev.signals,

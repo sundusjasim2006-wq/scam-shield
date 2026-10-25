@@ -53,7 +53,7 @@ ul{margin:6px 0 0;padding-left:20px}li{margin:3px 0}
 <script>
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const sleep=ms=>new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion:reduce)').matches?0:ms));
-fetch('/health').then(r=>r.json()).then(h=>$('#mode').textContent='Mode: '+h.mode).catch(()=>{});
+fetch('/health').then(r=>r.json()).then(h=>$('#mode').textContent='Mode: '+h.mode+' · Memory: '+(h.memory&&h.memory.enabled?'H-MEM on':'off')).catch(()=>{});
 fetch('/api/samples').then(r=>r.json()).then(list=>list.forEach(s=>{const b=document.createElement('button');b.className='chip';b.textContent=s.id.replace('case','Case ')+' · '+s.channel;
  b.onclick=()=>{$('#msg').value=s.message;$('#ch').value=s.channel;$('#snd').value=s.sender||'';$('#rep').value=s.reply_to||'';window._sample=s};$('#chips').appendChild(b)}));
 $('#go').onclick=async()=>{
@@ -80,8 +80,11 @@ $('#go').onclick=async()=>{
    +'<div class="meter">'+Array.from({length:20},(_,i)=>'<i class="'+(i<n?'f':'')+'"></i>').join('')+'</div>'
    +'<p><b>Why:</b> '+esc(d.why)+'</p><p><b>Skeptic:</b> '+esc(d.skeptic_view)+'</p>'
    +'<b>Evidence</b><ul>'+d.evidence.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'
-   +'<p><b>What to do now:</b> '+esc(d.safe_action)+'</p>';
+   +'<p><b>What to do now:</b> '+esc(d.safe_action)+'</p>'
+   +'<div style="margin-top:10px"><button class="chip" id="b-ok">I verified this with the real sender: remember it</button> <button class="chip" id="b-bad">Confirmed scam: remember it</button> <div id="fb" style="color:var(--mute);margin-top:6px"></div></div>';
   vd.style.display='block';vd.scrollIntoView({block:'nearest',behavior:'smooth'});
+  const learn=async o=>{const r=await fetch('/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:body,outcome:o})});const j=await r.json();$('#fb').textContent=j.message||j.error||'Done'};
+  $('#b-ok').onclick=()=>learn('verified_legitimate');$('#b-bad').onclick=()=>learn('confirmed_scam');
  }catch(e){$('#feed').innerHTML='<div class="err">'+esc(e.message)+'</div>'}
  btn.disabled=false};
 </script></body></html>

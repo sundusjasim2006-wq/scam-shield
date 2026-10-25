@@ -1,0 +1,9 @@
+{"memoryId":"mem-1","action":"create","actor":"system","timestamp":1792924207475,"newState":{"id":"mem-1","content":"VENDOR_ACCOUNT | vendor=Lumen Print Works | domain=lumen-print.example | account_last4=5508 | status=verified_by_human | learned=2026-10-25","type":"general","layer":"working","timestamp":1792924207475,"lastAccessed":1792924207475,"accessCount":0,"tags":[],"confidence":0.7,"source":"scamshield:vendor-account","provenance":{"origin":"manual","learnedAt":1792924207475,"label":"scamshield:vendor-account"},"domain":"general","namespace":"general/notes","entities":["lumen","print","works"],"relatedTo":[]}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207482,"details":{"query":"VENDOR_ACCOUNT lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207483,"details":{"query":"KNOWN_SCAM lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207484,"details":{"query":"lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207484,"details":{"query":"lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207491,"details":{"query":"VENDOR_ACCOUNT lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207492,"details":{"query":"KNOWN_SCAM lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207492,"details":{"query":"lumen-print.example"}}
+{"memoryId":"mem-1","action":"read","actor":"system","timestamp":1792924207493,"details":{"query":"lumen-print.example"}}

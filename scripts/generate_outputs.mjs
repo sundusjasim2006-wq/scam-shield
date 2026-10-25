@@ -3,6 +3,7 @@
 // Usage: node scripts/generate_outputs.mjs          (offline; set GENERATE_WITH_MODEL=1 to use your model key)
 import fs from 'node:fs';
 if (!process.env.GENERATE_WITH_MODEL) process.env.SAMPLE_MODE = 'true';
+process.env.SCAMSHIELD_MEMORY = 'off';
 const { loadData } = await import('../src/scamshield/data.mjs');
 const { makeLogger } = await import('../src/scamshield/logger.mjs');
 const { analyze } = await import('../src/scamshield/agents.mjs');
