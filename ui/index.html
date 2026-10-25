@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scam Shield</title>
+<style>
+:root{--bg:#0a0a0c;--panel:#14141a;--line:#2a2a33;--ink:#ecebf0;--mute:#9b9aa8;--red:#e10600;--amber:#f0a020;--green:#27c27a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Segoe UI",system-ui,sans-serif;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-position:-1px -1px}
+main{max-width:900px;margin:0 auto;padding:22px 16px 60px;background:linear-gradient(var(--bg),var(--bg)) padding-box}
+header{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--red);padding-bottom:10px;margin-bottom:18px}
+h1{margin:0;font-size:1.7rem;letter-spacing:.04em;text-transform:uppercase}h1 span{color:var(--red)}
+.mode{color:var(--mute);font-size:13px}
+.panel{background:var(--panel);border:1px solid var(--line);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));padding:16px;margin-bottom:16px}
+label{display:block;font-size:13px;color:var(--mute);margin:8px 0 4px}
+textarea,input,select{width:100%;background:#0d0d11;color:var(--ink);border:1px solid var(--line);padding:9px;font:inherit;border-radius:2px}
+textarea{min-height:110px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}@media(max-width:640px){.row{grid-template-columns:1fr}}
+textarea:focus,input:focus,select:focus,button:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{background:#0d0d11;color:var(--ink);border:1px solid var(--line);padding:4px 10px;font:inherit;font-size:13px;cursor:pointer}.chip:hover{border-color:var(--red)}
+.go{background:var(--red);color:#fff;border:0;padding:11px 26px;font:inherit;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.go:disabled{opacity:.5;cursor:wait}
+h2{font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+.agents{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}@media(max-width:640px){.agents{grid-template-columns:1fr}}
+.ag{border:1px solid var(--line);padding:10px;transition:.2s}.ag b{display:block}.ag small{color:var(--mute)}
+.ag.on{border-color:var(--red);box-shadow:0 0 14px #e1060055}
+.feed{font:13px/1.5 Consolas,monospace;max-height:260px;overflow:auto}
+.feed div{padding:3px 0;border-bottom:1px solid #1d1d25}.feed .a{color:var(--red)}.feed .t{color:var(--mute)}
+.verdict{border:2px solid var(--vc);padding:14px;display:none}
+.stamp{display:inline-block;color:var(--vc);border:3px solid var(--vc);padding:2px 14px;font-weight:900;font-size:1.5rem;letter-spacing:.06em;text-transform:uppercase;animation:slam .4s ease-out}
+@keyframes slam{0%{transform:scale(2.2);opacity:0}70%{transform:scale(.95);opacity:1}100%{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.stamp{animation:none}.ag{transition:none}}
+.meter{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;margin:10px 0}.meter i{height:12px;background:#22222a}.meter i.f{background:var(--vc)}
+ul{margin:6px 0 0;padding-left:20px}li{margin:3px 0}
+.err{color:#ff7a6e}.fine{color:var(--mute);font-size:13px;margin-top:20px}
+</style></head><body><main>
+<header><h1>Scam <span>Shield</span></h1><div class="mode" id="mode"></div></header>
+<div class="panel">
+  <h2>Suspicious request</h2>
+  <div class="chips" id="chips"></div>
+  <label for="msg">Message, email or call transcript</label><textarea id="msg" placeholder="Paste what you received..."></textarea>
+  <div class="row">
+    <div><label for="ch">Channel</label><select id="ch"><option value="email">Email</option><option value="sms">SMS</option><option value="voice_transcript">Voice transcript</option></select></div>
+    <div><label for="snd">Sender</label><input id="snd" placeholder="accounts@vendor.example"></div>
+    <div><label for="rep">Reply-to (optional)</label><input id="rep"></div>
+  </div>
+  <div style="margin-top:14px"><button class="go" id="go">Run analysis</button></div>
+</div>
+<div class="panel"><h2>Agents</h2>
+  <div class="agents"><div class="ag" id="ag-Investigator"><b>Investigator</b><small>Collects evidence</small></div><div class="ag" id="ag-Skeptic"><b>Skeptic</b><small>Challenges the verdict</small></div><div class="ag" id="ag-Judge"><b>Judge</b><small>Decides and advises</small></div></div>
+  <div class="feed" id="feed"><div class="t">Agent activity appears here.</div></div>
+</div>
+<div class="verdict panel" id="vd"></div>
+<p class="fine">Demo with synthetic data only. Scam Shield advises and a human decides. It cannot catch every scam and is not a replacement for verifying with the real vendor or person.</p>
+</main>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sleep=ms=>new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion:reduce)').matches?0:ms));
+fetch('/health').then(r=>r.json()).then(h=>$('#mode').textContent='Mode: '+h.mode).catch(()=>{});
+fetch('/api/samples').then(r=>r.json()).then(list=>list.forEach(s=>{const b=document.createElement('button');b.className='chip';b.textContent=s.id.replace('case','Case ')+' · '+s.channel;
+ b.onclick=()=>{$('#msg').value=s.message;$('#ch').value=s.channel;$('#snd').value=s.sender||'';$('#rep').value=s.reply_to||'';window._sample=s};$('#chips').appendChild(b)}));
+$('#go').onclick=async()=>{
+ const msg=$('#msg').value.trim();if(!msg)return;
+ const btn=$('#go');btn.disabled=true;$('#vd').style.display='none';$('#feed').innerHTML='<div class="t">Starting analysis...</div>';
+ document.querySelectorAll('.ag').forEach(a=>a.classList.remove('on'));
+ const s=window._sample&&window._sample.message===msg?window._sample:{};
+ const body={message:msg,channel:$('#ch').value,sender:$('#snd').value,reply_to:$('#rep').value||null,display_name:s.display_name||'',subject:s.subject||null,links:s.links||[],...(s.safe_word_matched?{safe_word_matched:true}:{})};
+ try{
+  const r=await fetch('/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json();if(!r.ok)throw new Error(d.error||'Request failed');
+  const tools=d.trace.filter(e=>e.agent==='EvidenceTools'),flag=tools.filter(e=>e.status==='flagged').length;
+  $('#feed').innerHTML='';
+  const add=(cls,t)=>{const x=document.createElement('div');x.innerHTML=t;$('#feed').appendChild(x);x.scrollIntoView({block:'nearest'})};
+  document.querySelectorAll('.ag').forEach(a=>a.classList.remove('on'));$('#ag-Investigator').classList.add('on');
+  add('','<span class="a">Evidence tools</span> ran '+tools.length+' checks, <b>'+flag+' flagged</b>');await sleep(500);
+  for(const e of d.trace.filter(e=>e.agent!=='EvidenceTools')){
+   document.querySelectorAll('.ag').forEach(a=>a.classList.remove('on'));const el=$('#ag-'+e.agent);if(el)el.classList.add('on');
+   add('','<span class="a">'+esc(e.agent)+'</span>'+(e.to?' <span class="t">to '+esc(e.to)+'</span>':'')+' · '+esc(e.action)+': '+esc(e.summary));await sleep(750)}
+  const c={HOLD:['#e10600','Hold'],VERIFY_FIRST:['#f0a020','Verify first'],OK:['#27c27a','Looks OK']}[d.verdict];
+  const vd=$('#vd');vd.style.setProperty('--vc',c[0]);
+  const n=Math.round(d.confidence*20);
+  vd.innerHTML='<span class="stamp">'+c[1]+'</span> <span class="t"> confidence '+Math.round(d.confidence*100)+'%'+(d.amount_mentioned_usd?' · amount $'+d.amount_mentioned_usd.toLocaleString():'')+'</span>'
+   +'<div class="meter">'+Array.from({length:20},(_,i)=>'<i class="'+(i<n?'f':'')+'"></i>').join('')+'</div>'
+   +'<p><b>Why:</b> '+esc(d.why)+'</p><p><b>Skeptic:</b> '+esc(d.skeptic_view)+'</p>'
+   +'<b>Evidence</b><ul>'+d.evidence.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'
+   +'<p><b>What to do now:</b> '+esc(d.safe_action)+'</p>';
+  vd.style.display='block';vd.scrollIntoView({block:'nearest',behavior:'smooth'});
+ }catch(e){$('#feed').innerHTML='<div class="err">'+esc(e.message)+'</div>'}
+ btn.disabled=false};
+</script></body></html>
