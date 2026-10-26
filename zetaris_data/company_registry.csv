@@ -1,0 +1,5 @@
+legal_name,trading_name,domain,registration_number,jurisdiction,status
+Northwind Supplies Ltd,Northwind Supplies,northwind-supplies.example,SYN-104419,Delaware (synthetic),active
+Harbor Logistics Ltd,Harbor Logistics,harbor-logistics.example,SYN-228731,Delaware (synthetic),active
+Pinecrest Office Supply Inc,Pinecrest Office Supply,pinecrest-office.example,SYN-330158,California (synthetic),active
+First National Bank of Example,First National,firstnational.example,SYN-BANK-01,New York (synthetic),active

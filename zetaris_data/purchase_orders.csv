@@ -1,0 +1,5 @@
+po_number,vendor,amount_usd,currency,issued_date,status,description
+PO-1042,Northwind Supplies,12400,USD,2026-10-01,open,Q4 warehouse restock (synthetic)
+PO-1048,Northwind Supplies,4850,USD,2026-10-12,open,Packing materials add-on (synthetic)
+PO-1107,Harbor Logistics,9100,USD,2026-09-22,open,Inbound freight block (synthetic)
+PO-2201,Pinecrest Office Supply,289,USD,2026-08-15,closed,Toner and paper (synthetic)
