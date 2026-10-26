@@ -64,13 +64,15 @@ With no `.env` file the app runs in **offline evidence mode** (this is also the 
 curl.exe -X POST http://localhost:8000/run -H "Content-Type: application/json" -d "@input_examples/case01.json"
 ```
 
+The response includes `verdict`, `confidence`, `rounds`, `why`, `skeptic_view`, `evidence` (each item cites the file and record used), `safe_action`, `signals`, `mode` and a `trace` of every step. The trace starts with the ten evidence tools, then an Investigator → H-MEM memory recall, then the Investigator/Skeptic exchange and the Judge's verdict.
+
 Sample inputs are in `input_examples/` and real outputs from the agents are in `output_examples/`.
 
 ## Model mode (optional)
 
 Copy `.env.example` to `.env` and fill in `MODEL_API_KEY`, `MODEL_BASE_URL` (an OpenAI-compatible endpoint, default NVIDIA's) and `MODEL_NAME`. A model then gives its own opinion on each case. It can only make the verdict **stricter**, never approve a payment, and if the model call fails the agents fall back to the evidence tools and log the failure. Never commit `.env`.
 
-**Status of model mode in this submission:** TODO (fill in after your run: which model, which agent uses it, and that the run is in `logs/`).
+**Status of model mode in this submission:** no model API key was available when this was written, so every result in this repository comes from offline evidence mode (`"mode": "offline-evidence"` in the output). The model path is implemented, but it has only been tested against a local mock server, not a real model.
 
 ## How the sponsors are used
 
@@ -110,7 +112,7 @@ Set `DATA_SOURCE=local` to force the local files. Without `zetaris_snapshot/` (i
 | `node scripts/grade_holdout.mjs` | Verdicts on 3 fresh cases the rules were not tuned on |
 
 - **Development cases (12):** 12/12 correct, 0 false alarms on the 3 safe cases, 0 scams missed. The rules were built around these cases, so this is a smoke test, not a measure of how well it generalizes.
-- **Fresh hold-out cases (3):** TODO (paste the exact result of `node scripts/grade_holdout.mjs`, including any misses). They were written after the rules were fixed and never used for tuning.
+- **Fresh hold-out cases (3):** 3/3 correct (HOLD, VERIFY_FIRST, OK). They were written after the rules were fixed and never used for tuning. They were written by the same person who built the rules, and three cases are too few to say how well it generalizes. Treat this as a sanity check, not a benchmark.
 
 ## Limitations
 

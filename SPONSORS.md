@@ -19,11 +19,11 @@ One entry per use, with where to find it in the repository.
 - `scripts/memory_demo.mjs` (`npm run demo-memory`): cold run, a human verifies the vendor, the same account then passes, and a changed account is held. It prints the engine's own audit trail.
 - A guard stops lookalike domains from being "verified" into memory.
 - The server's memory buttons store and read the same memory.
-- Nightshift: TODO (state plainly whether it was used as the primary AI provider. If it was not integrated, write that here and in the README.)
+- Nightshift was not used. The Meterless requirement is met by implementing the H-MEM engine in a working feature, which the organizers confirmed is what counts, whichever model provider is used.
 
 ## NVIDIA Nemotron
 
-- TODO (after your key works: model name, which agent uses it, and the log file showing a real call. If you could not get a key, write that plainly.)
+- Not used. I could not get an NVIDIA API key during the build window (the account verification code never arrived). The model path in `src/scamshield/llm.mjs` can use any OpenAI-compatible endpoint, including NVIDIA's, but it has only been tested against a local mock server. All results in this repository come from offline evidence mode.
 
 ## Coding tools
 
