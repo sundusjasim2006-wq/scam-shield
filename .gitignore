@@ -6,3 +6,5 @@ logs/trace.jsonl
 vendor/
 .notebook/
 zetaris_snapshot/
+__pycache__/
+*.pyc
