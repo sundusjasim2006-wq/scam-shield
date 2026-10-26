@@ -1,0 +1,51 @@
+{
+  "project": "Scam Shield",
+  "hackathon": "Open Agent Hackathon 2026",
+  "track": "Track 2: The Agent That Can Explain Why",
+  "team": "solo",
+  "github_user": "sundusjasim2006-wq",
+  "summary": "A team of AI agents (Investigator, Skeptic, Judge) that checks a suspicious payment request or message before anyone acts and returns a verdict with evidence and a safe next step.",
+  "data": "All data is synthetic.",
+  "sponsors": {
+    "zetaris": {
+      "used": true,
+      "role": "Holds the company's scattered records as a SCAMSHIELD database (vendors, payments, purchase_orders, bank_change_log, domain_registry, company_registry). The evidence tools load their data from a JDBC export of those tables.",
+      "where": [
+        "scripts/zetaris_export.py",
+        "scripts/zetaris_sql.py",
+        "scripts/zetaris_test.py",
+        "scripts/make_zetaris_csv.py",
+        "src/scamshield/data.mjs",
+        "logs/zetaris_trace.jsonl"
+      ],
+      "limitation": "The app reads an exported snapshot, not a live query on every request."
+    },
+    "meterless": {
+      "used": true,
+      "engine": "H-MEM",
+      "role": "Persistent memory of human-verified vendors and bank accounts and of confirmed scams. A later request with a different account is caught by the memory and the verdict cites the memory ID.",
+      "where": [
+        "scripts/memory_demo.mjs",
+        "server.mjs",
+        "vendor/hmem (fetched by npm run setup)"
+      ],
+      "nightshift_primary_provider": false
+    },
+    "nvidia": {
+      "used": false,
+      "role": "Not used: no API key could be obtained during the build window. The model path accepts any OpenAI-compatible endpoint but was only tested against a local mock server.",
+      "where": [
+        "src/scamshield/llm.mjs",
+        ".env.example"
+      ]
+    },
+    "coding_tools": ["Cursor (until its free usage limit ran out)", "Claude (claude.ai)"]
+  },
+  "starter": "Built from the Meterless agentathon-starter template (Apache-2.0)",
+  "run": {
+    "install": "npm install && npm run setup",
+    "start": "npm start",
+    "api": "POST /run on http://localhost:8000",
+    "sample_mode": "No .env needed: offline evidence mode runs the real evidence tools and agents."
+  }
+}

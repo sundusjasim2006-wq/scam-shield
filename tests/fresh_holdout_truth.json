@@ -1,0 +1,5 @@
+{
+  "f1": {"expected_verdict": "HOLD", "note": "parcel redelivery fee SMS from an unknown number with a payment link"},
+  "f2": {"expected_verdict": "VERIFY_FIRST", "note": "payroll bank change requested from a personal mailbox; confirm in person or by phone"},
+  "f3": {"expected_verdict": "OK", "note": "ordinary message from a saved family contact, no money involved"}
+}
