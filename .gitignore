@@ -5,3 +5,4 @@ node_modules
 logs/trace.jsonl
 vendor/
 .notebook/
+zetaris_snapshot/
